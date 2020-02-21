@@ -29,20 +29,17 @@ const styles = StyleSheet.create({
 })
 
 //   View
-const ListItem = () => {
+const ListItem = ({ imageUrl, title, author }) => {
   return (
     <View style={styles.itemContainer}>
       <View style={styles.leftContainer}>
-        <Image
-          source={{ uri: 'https://facebook.github.io/react/logo-og.png' }}
-          style={{ width: 100, height: 100 }}
-        />
+        <Image source={{ uri: imageUrl }} style={{ width: 100, height: 100 }} />
       </View>
       <View style={styles.rightContainer}>
         <Text numberOfLines={3} style={styles.text}>
-          私は今日よほどこの発音めというはずのためを出ですなけれ。けっして前が話帰りはもうそんなろかううまでが強いるからいんでは抑圧出るですますて、それほどにはするだろたですです。国家が歩いうことも万十月をついにでしますでし。
+          {title}
         </Text>
-        <Text style={styles.subText}>React News</Text>
+        <Text style={styles.subText}>{author}</Text>
       </View>
     </View>
   )
