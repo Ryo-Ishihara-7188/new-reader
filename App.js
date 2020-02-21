@@ -2,6 +2,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import ListItem from './components/ListItem'
+import articles from './dummies/articles'
 
 // Styles
 const styles = StyleSheet.create({
@@ -15,23 +16,15 @@ const styles = StyleSheet.create({
 
 // View
 export default function App() {
-  return (
-    <View style={styles.container}>
+  const items = articles.map((article, index) => {
+    return (
       <ListItem
-        imageUrl="https://facebook.github.io/react/logo-og.png"
-        title="私は今日よほどこの発音めというはずのためを出ですなけれ。けっして前が話帰りはもうそんなろかううまでが強いるからいんでは抑圧出るですますて、それほどにはするだろたですです。国家が歩いうことも万十月をついにでしますでし。"
-        author="Rreact News"
+        imageUrl={article.urlToImage}
+        title={article.title}
+        author={article.author}
+        key={index}
       />
-      <ListItem
-        imageUrl="https://facebook.github.io/react/logo-og.png"
-        title="私は今日よほどこの発音めというはずのためを出ですなけれ。けっして前が話帰りはもうそんなろかううまでが強いるからいんでは抑圧出るですますて、それほどにはするだろたですです。国家が歩いうことも万十月をついにでしますでし。"
-        author="Rreact News"
-      />
-      <ListItem
-        imageUrl="https://facebook.github.io/react/logo-og.png"
-        title="私は今日よほどこの発音めというはずのためを出ですなけれ。けっして前が話帰りはもうそんなろかううまでが強いるからいんでは抑圧出るですますて、それほどにはするだろたですです。国家が歩いうことも万十月をついにでしますでし。"
-        author="Rreact News"
-      />
-    </View>
-  )
+    )
+  })
+  return <View style={styles.container}>{items}</View>
 }
